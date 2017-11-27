@@ -82,6 +82,10 @@ class BurgerBuilder extends Component {
     this.setState({purchasing: true});
   }
 
+  purchasedCancelHandler = () => {
+    this.setState({purchasing: false})
+  }
+
   render() {
     //make disable when 0 incredients will disable that button by false
     const disabledInfo = {
@@ -93,10 +97,10 @@ class BurgerBuilder extends Component {
     // {salad: true, meat: false, ...}
     return (
         <Aux>
-          <Modal show={this.state.purchasing}>
-          <OrderSummary 
-            ingredients={this.state.ingredients} 
-          />
+          <Modal show={this.state.purchasing} modalClosed={this.purchasedCancelHandler}>
+            <OrderSummary 
+              ingredients={this.state.ingredients} 
+            />
           </Modal>
           <Burger ingredients={this.state.ingredients}/>
           <BuildControls 
