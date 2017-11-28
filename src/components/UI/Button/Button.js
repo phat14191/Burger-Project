@@ -5,7 +5,7 @@ import classes from './Button.css';
 export default function Button(props) {
     return (
         <div>
-            <button className={[classes.Button, classes[props.btnType]].join(' ')}onClick={props.clicked}>{props.children}</button>
+            <button className={[classes.Button, classes[props.btnType]].join(' ')} onClick={props.clicked}>{props.children}</button>
         </div>
     )
 }
